@@ -1,0 +1,1 @@
+codigo2,nombre2,prerequisto2,opcionalidad2,semestre2,creditos2,estado2
