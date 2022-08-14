@@ -13,7 +13,7 @@ class Curso:
         self.semestre=semestre
         self.creditos=creditos
         self.estado=estado
-
+#version final
 ##Conteo de todos los cursos
     def conteo_creditos_aprobados_totales():
         creditos_aprobados=0
@@ -114,9 +114,18 @@ class Curso:
             for i in range(len(lineas)):
                 linea=lineas[i].split(",")
                 for j in range(1):
-                    objeto=Curso(linea[j],linea[j+1],linea[j+2],linea[j+3],linea[j+4],linea[j+5],linea[j+6])
-                    lista_objetos.append(objeto)
-                    codis.append(linea[j])
+                    if linea[j] not in codis:
+                        objeto=Curso(linea[j],linea[j+1],linea[j+2],linea[j+3],linea[j+4],linea[j+5],linea[j+6])
+                        lista_objetos.append(objeto)
+                        codis.append(linea[j])
+                    else:
+                        indice=Curso.buscar_curso(linea[j])
+                        lista_objetos[indice].nombre=linea[j+1]
+                        lista_objetos[indice].pre_requisito=linea[j+2]
+                        lista_objetos[indice].obligatorio=linea[j+3]
+                        lista_objetos[indice].semestre=linea[j+4]
+                        lista_objetos[indice].creditos=linea[j+5]
+                        lista_objetos[indice].estado=linea[j+6]                            
         else:
             for i in range(len(lineas)):
                 linea=lineas[i].split(",")

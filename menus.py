@@ -287,7 +287,7 @@ def ventana_editar_curso():
     btnEditar=tkinter.Button(editar,text="Editar",command=btn_editar)
     btnEditar.place(x=120,y=250)
 
-
+#version final
 def ventana_eliminar_curso():
     gestionar.withdraw()
     eliminar=tkinter.Tk()
