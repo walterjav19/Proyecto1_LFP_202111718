@@ -116,6 +116,7 @@ class Curso:
                 for j in range(1):
                     if linea[j] not in codis:
                         objeto=Curso(linea[j],linea[j+1],linea[j+2],linea[j+3],linea[j+4],linea[j+5],linea[j+6])
+                        
                         lista_objetos.append(objeto)
                         codis.append(linea[j])
                     else:
