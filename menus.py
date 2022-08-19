@@ -114,7 +114,21 @@ def ventana_listar_cursos():
 
     
     for i in range (filas):
-        arbol.insert("",END,text=lista_objetos[i].codigo,values=(lista_objetos[i].nombre,lista_objetos[i].pre_requisito,lista_objetos[i].obligatorio,lista_objetos[i].semestre,lista_objetos[i].creditos,lista_objetos[i].estado))
+        opcionalidad=lista_objetos[i].obligatorio
+        estado=lista_objetos[i].estado
+        
+        if int(estado)==0:
+            estado="Aprobado"
+        elif int(estado)==1:
+            estado="Cursando"
+        elif int(estado)==-1:
+            estado="Pendiente"    
+
+        if opcionalidad=="1":
+            opcionalidad="Obligatorio"
+        else:
+            opcionalidad="Opcional"    
+        arbol.insert("",END,text=lista_objetos[i].codigo,values=(lista_objetos[i].nombre,lista_objetos[i].pre_requisito,opcionalidad,lista_objetos[i].semestre,lista_objetos[i].creditos,estado))
 
 
 
